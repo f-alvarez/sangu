@@ -35,7 +35,9 @@
            <td>${ing.key.tipo}</td>
            <td>${ing.value}</td>
 			<!--   como mostrar cantidad         -->
-           
+           <td><input type="checkbox" name="${ing.key.nombre}" value="${ing.key.nombre}"/></td></tr>
+            <td><button type="button" class="btn btn-primary" onclick="location.href='/sangucheto/nuevostock?nombre=${ing.key.nombre}'">Agregar Stock</button></td>
+           <td><button type="button" class="btn btn-danger" onclick="location.href='/sangucheto/eliminarstock?nombre=${ing.key.nombre}'">Eliminar</button></td>
            </tr>
     </c:forEach>
 

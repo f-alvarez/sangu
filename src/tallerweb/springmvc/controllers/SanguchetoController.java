@@ -63,6 +63,24 @@ public class SanguchetoController {
 	
 	}
 	
+	@RequestMapping("/nuevostock")
+	public String nuevoStock(@RequestParam("nombre") String nombre, Model modelo) {
+		
+		modelo.addAttribute("nombre", nombre);
+		return "AgregarStock";
+	
+	}
+	@RequestMapping("/eliminarstock")
+	public String eliminarStock(@RequestParam("nombre") String nombre) {
+		
+		Stock stock = Stock.getInstance();
+		Ingrediente ing = new Ingrediente();
+		ing.setNombre(nombre);
+		if(stock.existeIngrediente(ing)){
+			stock.eliminarIngrediente(ing);
+		}
+		return "redirect:stock";
+	}
 	//clave es el ingrediente 
 	//valor la cantidad
 }
